@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping>
+	<sql-query name="OC_QUERY_OC_ITEM_BY_CONDITION">
+		<![CDATA[select {i.*} from oc_item where item_name= :itemName or item_id= :itemId]]>
+	</sql-query>
+	
+	<sql-query name="OC_QUERY_ALL_OC_ITEM">
+		<![CDATA[select {i.*} from oc_item]]>
+	</sql-query>
+	
+	<sql-query name="OC_INSERT_OC_ORDER_BY_ID">
+		<![CDATA[insert into oc_order(order_id, order_status, item_id, item_count, email_id) values (:orderId, :orderStatus, :itemId, :itemCount, :emailId)]]>
+	</sql-query>
+	
+	<sql-query name="OC_QUERY_ALL_OC_ORDER">
+		<![CDATA[select * from oc_order order by order_id]]>
+	</sql-query>
+</hibernate-mapping>

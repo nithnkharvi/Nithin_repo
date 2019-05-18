@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection properties - Driver, URL, user, password -->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@10.18.158.241:1521:xe</property>
+		<property name="hibernate.connection.username">admindb</property>
+		<property name="hibernate.connection.password">Aa12345!</property>
+		<!-- Connection Pool Size -->
+		<property name="hibernate.connection.pool_size">1</property>
+		
+		<property name="hibernate.current_session_context_class">thread</property>
+		
+		<!-- Outputs the SQL queries, should be disabled in Production -->
+		<property name="hibernate.show_sql">true</property>
+		
+		<!-- Dialect is required to let Hibernate know the Database Type, MySQL, Oracle etc -->
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property> 
+
+		<!-- Mapping with model class containing annotations -->
+		<mapping class="com.omnicuris.ekart.pojo.OcItem"/>
+		
+		<!-- Mapping the named sql file with resources -->
+		<mapping resource="oc.named-queries.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
